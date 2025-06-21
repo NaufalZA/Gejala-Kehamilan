@@ -1,0 +1,387 @@
+/* Soft Rainbow Gradient Theme */
+:root {
+    --gradient-1: #FFD6E0; /* Soft pink */
+    --gradient-2: #FFEFD6; /* Soft peach */
+    --gradient-3: #FFF9D6; /* Soft yellow */
+    --gradient-4: #E0FFD6; /* Soft mint */
+    --gradient-5: #D6F0FF; /* Soft blue */
+    --gradient-6: #E8D6FF; /* Soft lavender */
+    --text-color: #4A4A4A;
+    --text-light: #6D6D6D;
+    --white: #FFFFFF;
+    --light-border: #E0E0E0;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-4), var(--gradient-5), var(--gradient-6));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #FF7BAC, #FFA07A, #FFD166, #06D6A0, #118AB2, #6A4C93);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+header p {
+    font-size: 1.1em;
+    color: var(--text-light);
+}
+
+/* Symptoms Grid */
+.symptoms-wrapper {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.symptom-category {
+    background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.symptom-category:hover {
+    transform: translateY(-5px);
+}
+
+.symptom-category h3 {
+    color: #6A4C93;
+    border-bottom: 2px dashed rgba(106, 76, 147, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.5);
+}
+
+.checkbox-group label:hover {
+    background: rgba(255, 214, 224, 0.5);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    accent-color: #FF7BAC;
+    cursor: pointer;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.diagnose-btn, 
+.reset-btn {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.diagnose-btn {
+    background: linear-gradient(45deg, #FF7BAC, #FFA07A);
+    color: white;
+}
+
+.reset-btn {
+    background: linear-gradient(45deg, #118AB2, #06D6A0);
+    color: white;
+}
+
+.diagnose-btn:hover, 
+.reset-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    opacity: 0.95;
+}
+
+/* Result Container */
+.result-container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    margin-top: 25px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.result-container h2 {
+    color: #6A4C93;
+    border-bottom: 2px dashed rgba(106, 76, 147, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.diagnosis-content {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.issue-result {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.issue-result:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.issue-result h3 {
+    color: #118AB2;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.action-needed {
+    background: rgba(255, 214, 224, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid #FF7BAC;
+}
+
+.action-needed strong {
+    color: #FF7BAC;
+}
+
+.warning {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 214, 0, 0.15);
+    border-radius: 8px;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    font-size: 0.95em;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .symptoms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}
+
+/* Accessibility and Focus States */
+input[type="checkbox"]:focus,
+button:focus {
+    outline: 3px solid rgba(106, 76, 147, 0.5);
+    outline-offset: 2px;
+}
+
+/* Animation for checkboxes */
+.checkbox-group input[type="checkbox"] {
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+    transform: scale(1.1);
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    header, .symptoms-wrapper, .result-container, footer {
+        box-shadow: none;
+        background: white;
+        border: none;
+    }
+}
+
+/* Search Section Styling */
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.search-container h2 {
+    color: #6A4C93;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.search-input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#symptomSearch {
+    width: 100%;
+    padding: 15px 60px 15px 20px;
+    border: 2px solid rgba(255, 123, 172, 0.3);
+    border-radius: 12px;
+    font-size: 1.1em;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#symptomSearch:focus {
+    border-color: #FF7BAC;
+    box-shadow: 0 0 15px rgba(255, 123, 172, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(45deg, #FF7BAC, #FFA07A);
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 123, 172, 0.3);
+}
+
+.search-suggestions, .search-results {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 123, 172, 0.2);
+}
+
+.search-suggestions:empty, .search-results:empty {
+    display: none;
+}
+
+.suggestion-item, .search-result-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.suggestion-item:hover, .search-result-item:hover {
+    background: rgba(255, 214, 224, 0.5);
+}
+
+.suggestion-item:last-child, .search-result-item:last-child {
+    border-bottom: none;
+}

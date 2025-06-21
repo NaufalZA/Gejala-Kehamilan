@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosa Masalah Kehamilan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Masalah Kehamilan</h1>
+            <p>Temukan kemungkinan kondisi kesehatan berdasarkan gejala yang Anda alami</p>
+        </header>
+        <!-- Search Section -->
+<section class="search-section">
+    <div class="search-container">
+        <h2>🔍 Cari Gejala</h2>
+        <div class="search-input-container">
+            <input 
+                type="text" 
+                id="symptomSearch" 
+                placeholder="Ketik gejala dalam bahasa natural, misalnya: 'kepala saya sakit sekali', 'perut terasa nyeri'"
+                autocomplete="off"
+            >
+            <button id="searchBtn" class="search-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div id="searchSuggestions" class="search-suggestions"></div>
+        <div id="searchResults" class="search-results"></div>
+        
+        <div class="search-tips">
+            <p><strong>Tips Pencarian:</strong></p>
+            <ul>
+                <li>Gunakan bahasa sehari-hari: "kepala pusing", "perut mulas", "demam tinggi"</li>
+                <li>Sistem akan memahami variasi kata: "sakit" = "nyeri" = "pegal"</li>
+                <li>Coba sinonim: "lelah" = "capek" = "letih" = "lemas"</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+        <main>
+            <form id="symptomForm">
+                <div class="symptoms-wrapper">
+                    <div class="symptoms-grid">
+                        <!-- Gejala Umum -->
+                        <div class="symptom-category">
+                            <h3>Gejala Umum</h3>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="symptom" value="demam">
+                                    <span>Demam</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="nyeriPerut">
+                                    Nyeri Perut Bawah/Rahim
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="muntahBerlebihan">
+                                    Muntah Berkali-kali/Berlebihan
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="lelah">
+                                    Kelelahan Ekstrem
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="beratBadanTurun">
+                                    Penurunan Berat Badan
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Gejala Tekanan Darah -->
+                        <div class="symptom-category">
+                            <h3>Gejala Tekanan Darah</h3>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="symptom" value="tekananDarahTinggi">
+                                    Tekanan Darah di Atas 140/90
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="sakit-kepala">
+                                    Sakit Kepala Berat/Menetap
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="pembengkakan">
+                                    Pembengkakan Kaki, Tangan, Wajah
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="pandanganKabur">
+                                    Penglihatan Kabur
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Gejala Infeksi -->
+                        <div class="symptom-category">
+                            <h3>Gejala Infeksi</h3>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="symptom" value="keluhanSaatBuangAir">
+                                    Nyeri/Panas Saat Buang Air Kecil
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="nyeriPanggul">
+                                    Nyeri Panggul Bawah
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="keluhanKeputihan">
+                                    Keputihan Berlebih/Berwarna
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="gatalKemaluan">
+                                    Gatal di Area Kemaluan
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Gejala Kehamilan -->
+                        <div class="symptom-category">
+                            <h3>Gejala Kehamilan Khusus</h3>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="symptom" value="kontraksiDini">
+                                    Kontraksi Sebelum Waktu Persalinan
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="pendarahanVagina">
+                                    Pendarahan Vagina Tidak Normal
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="keluarCairan">
+                                    Keluarnya Cairan Ketuban Sebelum Waktunya
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="nyeriPerutBerat">
+                                    Nyeri Perut Sangat Berat
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="pendarahanHitam">
+                                    Pendarahan Berwarna Hitam/Cokelat
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Gejala Metabolik -->
+                        <div class="symptom-category">
+                            <h3>Gejala Metabolik</h3>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="symptom" value="seringBuangAirKecil">
+                                    Sering Buang Air Kecil
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="rasa-haus">
+                                    Haus Berlebihan
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="makanBerlebih">
+                                    Nafsu Makan Tidak Terkendali
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="symptom" value="pucat">
+                                    Pucat Berlebihan
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="diagnose-btn">Diagnosa Sekarang</button>
+                    <button type="reset" class="reset-btn">Reset Pilihan</button>
+                </div>
+            </form>
+
+            <section id="resultContainer" class="result-container">
+                <h2>Hasil Diagnosa</h2>
+                <div id="diagnosisResult" class="diagnosis-content">
+                    <p>Pilih gejala yang Anda alami untuk mendapatkan diagnosa.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>🩺 Catatan Penting: Aplikasi ini hanya alat bantu. Selalu konsultasikan dengan tenaga medis profesional.</p>
+        </footer>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
